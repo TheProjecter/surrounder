@@ -1,0 +1,10 @@
+#summary How to develop this plugin
+#labels Phase-Implementation
+
+= Introduction =
+
+This plugin uses private classes of IntelliJ IDEA not in the OpenAPI.
+To use it, you must add the jar "idea.jar" in your IntelliJ IDEA application as a library of the project.
+
+If the jar "idea.jar" is deployed to IDEA, then the plugin won't works.
+To solve this problem just create a empty "idea.jar" read-only file into "IDEA_CONF_HOME/system/plugins-sandbox/surrounder/lib".
