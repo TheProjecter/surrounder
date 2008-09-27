@@ -1,0 +1,61 @@
+<!DOCTYPE idea-plugin PUBLIC "Plugin/DTD"
+        "http://plugins.intellij.net/plugin.dtd">
+<idea-plugin url="http://code.google.com/p/surrounder/">
+    <name>Surround each line</name>
+    <description>
+        <![CDATA[
+       <p>
+       Apply a template to each lines selected (instead of the whole selection).<br>
+
+       2 actions are available under the Code menu.
+       <ul>
+        <li>Apply template to each line <i>(default shortcut: shift ctrl alt J)</i></li>
+        <li>Remove the last semicolon of lines (if any) and apply a template <i>(default shortcut:shift alt J)</i></li>
+       </ul>
+
+       Example of template to use:
+       <pre>
+       &lt;li&gt;$SELECTION$&lt;/li&gt;
+       </pre>
+
+       Remove semicolon is useful for templates like:
+       <pre>
+       LOGGER.info("$SELECTION$="+$SELECTION$);
+       </pre>
+
+       <b>Current limitations:</b>
+       <ul>
+        <li>$END$ variable is ignored</li>
+       </ul>
+       </p>
+       ]]>
+    </description>
+    <!--<change-notes>-->
+    <!--<![CDATA[-->
+    <!--<p>-->
+    <!--<h4>Version 1.2</h4>-->
+    <!---->
+    <!--</p>-->
+    <!--]]>-->
+    <!--</change-notes>-->
+
+    <version>1.0</version>
+    <vendor email="osmedile@gmail.com">Olivier Smedile</vendor>
+    <idea-version since-build="7361" />
+
+    <actions>
+        <action id="osmedile.intellij.surrounder.TemplateSurroundEachLineAction"
+                class="osmedile.intellij.surrounder.TemplateSurroundEachLineAction"
+                text="Surround each line (remove last semicolon)"
+                description="Surround each line (remove last semicolon)">
+            <add-to-group group-id="CodeMenu" anchor="last" />
+            <keyboard-shortcut first-keystroke="shift alt J" keymap="$default" />
+        </action>
+        <action id="osmedile.intellij.surrounder.SurroundEachLinePreserveTextAction"
+                class="osmedile.intellij.surrounder.SurroundEachLinePreserveTextAction"
+                text="Surround each line" description="Surround each line">
+            <add-to-group group-id="CodeMenu" anchor="last" />
+            <keyboard-shortcut first-keystroke="shift ctrl alt J" keymap="$default" />
+        </action>
+    </actions>
+</idea-plugin>
